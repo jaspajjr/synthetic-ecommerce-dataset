@@ -14,7 +14,7 @@ def calculate_customer_column(df, retention_rate):
             customer_list.append(new_id)
         else:
             if check_new_customer(retention_rate) == 0:
-                customer_list.append(random.sample(customers, 1))
+                customer_list.append(random.sample(customers, 1)[0])
             else:
                 new_id = create_new_customer_id()
                 customers.add(new_id)

@@ -18,8 +18,9 @@ def main():
     df['revenue'] = df['product_id'].apply(how_much_was_the_product)
     df['customer_id'] = calculate_customer_column(df, .05)
     print(df.info())
-    print(df[pd.isna(df['product_id']) ==False])
-    print df.describe()
+    print (df.describe())
+    print (df.head())
+    df.to_csv('synthetic_data.csv', index=False)
 
 
 
