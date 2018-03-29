@@ -10,17 +10,22 @@ def was_product_purchased():
         return False
 
 
-def which_product_was_purchased():
-    p_id = np.random.multinomial(1, [1/7.]*5 + [2/7.], size=1).argmax()
-    return {'id': '{0}'.format(p_id)}
+def which_product_was_purchased(row):
+    if row['transaction']:
+        return int(np.random.multinomial(1, [1/7.]*5 + [2/7.], size=1).argmax())
+    else:
+        return np.nan
 
 
 def how_much_was_the_product(p_id):
     X = {
-        '1': 10,
-        '2': 20,
-        '3': 30,
-        '4': 40,
-        '5': 50,
-        '0': 5}
-    return X[p_id]
+        1: 10,
+        2: 20,
+        3: 30,
+        4: 40,
+        5: 50,
+        0: 5}
+    try:
+        return X[p_id]
+    except KeyError:
+        return 0

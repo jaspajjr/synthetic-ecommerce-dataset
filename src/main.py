@@ -1,5 +1,6 @@
 import pandas as pd
 from user_record import generate_user_record
+from product import which_product_was_purchased, how_much_was_the_product
 from utils import how_many_visits_today
 import datetime
 
@@ -12,8 +13,11 @@ def main():
                 how_many_visits_today(100, 500))])
 
     df = pd.DataFrame(record_list)
+    df['product_id'] = df.apply(which_product_was_purchased, axis=1)
+    df['revenue'] = df['product_id'].apply(how_much_was_the_product)
     print(df.info())
-    print df.head()
+    print(df[pd.isna(df['product_id']) ==False])
+    print df.describe()
 
 
 if __name__ == '__main__':
