@@ -1,4 +1,6 @@
 import numpy as np
+import random
+import datetime
 import uuid
 
 
@@ -19,7 +21,7 @@ def generate_time_of_day():
 
 
 def combine_times(input_date):
-    yield input_date + datetime.timedelta(**generate_time_of_day())
+    return input_date + datetime.timedelta(**generate_time_of_day())
 
 
 def which_marketing_channel():
