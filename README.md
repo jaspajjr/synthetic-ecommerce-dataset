@@ -8,3 +8,6 @@ I'm going to add a few more things into this:
     - More user agent fields
 
 I'm open to suggestions and pull requests. This data is completely made up, use at your own risk.
+
+`docker build -t dataset-generation .`
+`docker run -it -v $(pwd):/output dataset-generation`
