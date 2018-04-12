@@ -3,7 +3,6 @@ from user_record import generate_user_record
 from product import which_product_was_purchased, how_much_was_the_product
 from customer import calculate_customer_column
 from utils import how_many_visits_today
-import datetime
 
 
 def main():
@@ -17,12 +16,7 @@ def main():
     df['product_id'] = df.apply(which_product_was_purchased, axis=1)
     df['revenue'] = df['product_id'].apply(how_much_was_the_product)
     df['customer_id'] = calculate_customer_column(df, .05)
-    print(df.info())
-    print (df.describe())
-    print (df.head())
-    df.to_csv('synthetic_data.csv', index=False)
-
-
+    df.to_csv('/output/synthetic_data.csv', index=False)
 
 
 if __name__ == '__main__':
