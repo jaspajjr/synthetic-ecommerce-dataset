@@ -9,5 +9,6 @@ I'm going to add a few more things into this:
 
 I'm open to suggestions and pull requests. This data is completely made up, use at your own risk.
 
+This comand creates the dataset csv
 `docker build -t dataset-generation .`
 `docker run -it -v $(pwd):/output dataset-generation`
