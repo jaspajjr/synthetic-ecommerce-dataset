@@ -4,11 +4,20 @@ from product import which_product_was_purchased, how_much_was_the_product
 from customer import calculate_customer_column
 from utils import how_many_visits_today
 import datetime
+import json
+
+
+
+def read_config():
+    with open('./config.json') as f:
+        config = json.load(f)
+    return config
 
 
 def main():
     record_list = []
-    for d in pd.date_range(start='2018-01-01', end='2018-01-31'):
+    config = read_config()
+    for d in pd.date_range(start=config['start-date'], end=config['end-date']):
         record_list.extend(
             [generate_user_record(d) for x in xrange(
                 how_many_visits_today(100, 500))])
