@@ -3,12 +3,13 @@ from user_record import generate_user_record
 from product import which_product_was_purchased, how_much_was_the_product
 from customer import calculate_customer_column
 from utils import how_many_visits_today
+import os
 import json
 
 
 
 def read_config():
-    with open('./config.json') as f:
+    with open(os.path.join(os.path.dirname(__file__), 'config.json')) as f:
         config = json.load(f)
     return config
 
