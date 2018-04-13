@@ -20,7 +20,8 @@ def main():
     for d in pd.date_range(start=config['start-date'], end=config['end-date']):
         record_list.extend(
             [generate_user_record(d) for x in xrange(
-                how_many_visits_today(100, 500))])
+                how_many_visits_today(
+                    config['min_visits'], config['max_visits']))])
 
     df = pd.DataFrame(record_list)
     df['product_id'] = df.apply(which_product_was_purchased, axis=1)

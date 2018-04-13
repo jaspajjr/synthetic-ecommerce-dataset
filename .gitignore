@@ -2,6 +2,8 @@
 *.swp
 *.swo
 
+synthetic_data.csv
+
 *.pkl
 
 # Byte-compiled / optimized / DLL files

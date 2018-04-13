@@ -1,4 +1,6 @@
 {
   "start-date": "2018-01-01",
-  "end-date": "2018-01-01"
+  "end-date": "2018-01-01",
+  "min_visits": 100,
+  "max_visits": 500
 }
